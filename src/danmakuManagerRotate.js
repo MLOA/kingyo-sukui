@@ -17,15 +17,15 @@ export class DanmakuManagerRotate extends DanmakuManager {
 
   addEnemy() {
     if (frameCount % 3 === 1) {
-      let enemy = new Enemy02(this, 10);
-      const RotateDirectionList = [-1, 1];
-      const RotateDirection =
-        RotateDirectionList[
-          Math.floor(Math.random() * RotateDirectionList.length)
+      const rotateDirectionList = [-1, 1];
+      const rotateDirection =
+        rotateDirectionList[
+          Math.floor(Math.random() * rotateDirectionList.length)
         ];
+      let enemy = new Enemy02(this, 10, rotateDirection);
       enemy.setPosition(createVector(this.pos.x, this.pos.y));
       enemy.setVelocity(
-        createVector(RotateDirection, 0)
+        createVector(rotateDirection, 0)
           .rotate(frameCount / 10.0)
           .mult(10),
       );
