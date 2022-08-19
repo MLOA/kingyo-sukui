@@ -108,6 +108,8 @@ const finishGame = () => {
   scoreElm.classList.remove('invisible');
   playingScoreElm.classList.add('invisible');
   lifeElm.classList.add('invisible');
+  audioElm.pause();
+  audioElm.currentTime = 0;
   tweet();
 };
 
