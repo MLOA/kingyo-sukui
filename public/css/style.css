@@ -51,6 +51,7 @@ button {
 }
 
 .playing-score {
+  user-select: none;
   position: absolute;
   right: 10px;
 }
