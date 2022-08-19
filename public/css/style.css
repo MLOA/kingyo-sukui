@@ -8,14 +8,48 @@ html {
   background-color: #111;
   color: #f4f5f7;
   text-align: center;
-}
-
-canvas {
-  /* border: 1px solid white; */
+  font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝',
+    'Yu Mincho', '游明朝体', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
+  font-size: 24px;
 }
 
 h1 {
   margin: 20px 0;
-  font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝',
-    'Yu Mincho', '游明朝体', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  color: #f4f5f7;
+  background-color: #111;
+}
+
+#game {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.score,
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.playing-score {
+  position: absolute;
+  right: 10px;
+}
+
+.score-value {
+  font-size: 36px;
+  color: yellow;
+}
+
+.invisible {
+  display: none;
 }

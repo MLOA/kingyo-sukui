@@ -6,11 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>金魚救い</title>
 
+    <!-- reset.css modern-css-reset -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
+    />
+
     <!-- css -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <h1>金魚救い</h1>
+    <div id="game">
+      <div class="title">
+        <button class="start-button">チャレンジ開始</button>
+      </div>
+      <div class="playing-score invisible"></div>
+      <div class="score invisible">
+        <h2>チャレンジ終了</h2>
+        <p>
+          あなたは
+          <span class="score-value">0000</span>
+          の間金魚を救うことができました
+        </p>
+        <button class="restart-button">再チャレンジする</button>
+      </div>
+    </div>
     <script src="./src/index.js" type="module"></script>
   </body>
 </html>
