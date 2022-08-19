@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
 
 export class Enemy01 extends Enemy {
   constructor(danmaku, size) {
@@ -8,14 +8,12 @@ export class Enemy01 extends Enemy {
   }
 
   draw() {
-    stroke(255, 0, 0);
-    noFill();
-    push();
-    translate(this.pos.x, this.pos.y);
-    push();
-    rotate(this._angle);
-    rect(-15, -8, 30, 16);
-    pop();
-    pop();
+    noStroke();
+    ellipse(this.pos.x, this.pos.y);
+    this.orbits.forEach((orbit, i) => {
+      const ratio = i / this.orbits.length;
+      fill(255, 0, 0, 255 * ratio);
+      ellipse(orbit.x, orbit.y, 10 * ratio, 10 * ratio);
+    });
   }
 }

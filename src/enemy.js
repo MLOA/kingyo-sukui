@@ -10,9 +10,14 @@ export class Enemy {
     this._velocity = createVector(); // 移動ベクトル
     this._angle = 0; // 向き
     this.size = size;
+    this.orbits = [];
   }
 
   update() {
+    this.orbits.push(this.pos.copy());
+    if (this.orbits.length > 10) {
+      this.orbits.shift();
+    }
     this.pos.add(this._velocity);
     this.collisionField();
   }
