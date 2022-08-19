@@ -80,7 +80,7 @@ sketch.draw = function () {
 
 sketch.mousePressed = function () {
   if (!isPlaying()) return;
-  // finishGame();
+  finishGame();
   poiManager.shoot(mouseX, mouseY);
 };
 
@@ -98,10 +98,12 @@ const startGame = () => {
   lifeElm.classList.remove('invisible');
 };
 
+/** @type {(score: number) => void} */
 const finishGame = () => {
   console.log('Finish Game');
   isStarted = false;
   isFinished = true;
+  tweet();
   scoreElm.classList.remove('invisible');
   playingScoreElm.classList.add('invisible');
   lifeElm.classList.add('invisible');
@@ -125,9 +127,28 @@ const drawScore = (score) => {
   scoreValueElm.textContent = score;
 };
 
+const tweet = () => {
+  const text = `わたしのScoreは ${score} でした！`;
+  const url = 'https://mloa.github.io/kingyo-sukui/';
+  const hashtags = ['金魚救い', 'ツクアソ'].join(',');
+
+  return;
+
+  window.open(
+    'https://twitter.com/intent/tweet?' +
+      [
+        'text=' + encodeURIComponent(text),
+        'hashtags=' + encodeURIComponent(hashtags),
+        'url=' + encodeURIComponent(url),
+      ].join('&'),
+    '',
+    'width=600,height=400,scrollbars=no',
+  );
+};
+
 const spawnDanmaku = () => {
   danmakuManagers = danmakuManagers.filter(
-    (danmakuManager) => danmakuManager.isAlive
+    (danmakuManager) => danmakuManager.isAlive,
   );
   if (danmakuManagers.length > 1) return;
   console.log('spawn');
@@ -138,17 +159,17 @@ const spawnDanmaku = () => {
       break;
     case 1:
       danmakuManagers.push(
-        new DanmakuManagerRotate(random(width), random(0, height / 4))
+        new DanmakuManagerRotate(random(width), random(0, height / 4)),
       );
       break;
     case 2:
       danmakuManagers.push(
-        new DanmakuManagerSpread(random(width), random(height / 3))
+        new DanmakuManagerSpread(random(width), random(height / 3)),
       );
       break;
     case 3:
       danmakuManagers.push(
-        new DanmakuManagerHoming(random(width), random(height / 5), goldenFish)
+        new DanmakuManagerHoming(random(width), random(height / 5), goldenFish),
       );
       break;
   }
