@@ -46,6 +46,20 @@ button {
   right: 10px;
 }
 
+.life {
+  position: absolute;
+  left: 10px;
+}
+
+.kingyo {
+  display: inline-block;
+  width: 40px;
+  height: 60px;
+  background-image: url('../img/kingyo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .score-value {
   font-size: 36px;
   color: yellow;

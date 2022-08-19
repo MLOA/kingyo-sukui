@@ -4,7 +4,7 @@ import { Enemy } from './enemy';
 
 export class GoldenFish {
   /** @type {(width: number, height: number, size: number) => void} */
-  constructor(width, height, size) {
+  constructor(width, height, size, callback) {
     this.size = size;
     this.collisionSize = size * 0.45;
     this.life = 3;
@@ -14,6 +14,7 @@ export class GoldenFish {
     this.defaultInvincibleTime = 3 * 60; // 180frame
     this.invincibleTime = this.defaultInvincibleTime;
     this.isBlinking = false;
+    this.onDamage = callback;
   }
 
   /** @type {(frameCount: number, enemies: Enemy[]) => void} */
@@ -72,6 +73,7 @@ export class GoldenFish {
     this.life--;
     this.isInvincible = true;
     console.log('goldenFish.life', this.life);
+    this.onDamage();
   }
 
   blink() {

@@ -35,6 +35,7 @@ const titleElm = document.querySelector('.title');
 const playingScoreElm = document.querySelector('.playing-score');
 const scoreElm = document.querySelector('.score');
 const scoreValueElm = document.querySelector('.score-value');
+const lifeElm = document.querySelector('.life');
 
 sketch.setup = function () {
   frameRate(60);
@@ -42,7 +43,13 @@ sketch.setup = function () {
   canvas.parent('game');
   score = 0;
   backgroundLayer = new Background(width, height);
-  goldenFish = new GoldenFish(width, height, 100);
+  goldenFish = new GoldenFish(width, height, 100, () => {
+    if (goldenFish.life == 0) {
+      finishGame();
+    }
+    drawLife();
+  });
+  drawLife();
   poiManager = new PoiManager(width, height, 30);
   danmakuManagers = [];
 };
@@ -62,9 +69,6 @@ sketch.draw = function () {
   goldenFish.update(frameCount, mergedEnemies);
   poiManager.update(mouseX, mouseY, mergedEnemies);
   danmakuManagers.forEach((danmakuManager) => danmakuManager.update());
-  if (goldenFish.life == 0) {
-    finishGame();
-  }
 
   goldenFish.draw();
   poiManager.draw();
@@ -90,6 +94,7 @@ const startGame = () => {
   isFinished = false;
   titleElm.classList.add('invisible');
   playingScoreElm.classList.remove('invisible');
+  lifeElm.classList.remove('invisible');
 };
 
 const finishGame = () => {
@@ -98,11 +103,20 @@ const finishGame = () => {
   isFinished = true;
   scoreElm.classList.remove('invisible');
   playingScoreElm.classList.add('invisible');
+  lifeElm.classList.add('invisible');
 };
 
 const restartGame = () => {
   scoreElm.classList.add('invisible');
   startGame();
+};
+
+const drawLife = () => {
+  let life = '';
+  new Array(goldenFish.life).fill().map(() => {
+    life += '<span class="kingyo"></span>';
+  });
+  lifeElm.innerHTML = life;
 };
 
 const drawScore = (score) => {
