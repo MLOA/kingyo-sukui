@@ -1,6 +1,7 @@
 /// <reference types="@types/p5/global" />
 
 import { sketch } from 'p5js-wrapper';
+import html2canvas from 'html2canvas';
 
 import { Background } from './background';
 import { GoldenFish } from './goldenFish';
@@ -37,6 +38,7 @@ const playingScoreElm = document.querySelector('.playing-score');
 const scoreElm = document.querySelector('.score');
 const scoreValueElm = document.querySelector('.score-value');
 const lifeElm = document.querySelector('.life');
+const audioElm = document.querySelector('.bgm');
 
 sketch.setup = function () {
   frameRate(60);
@@ -80,7 +82,6 @@ sketch.draw = function () {
 
 sketch.mousePressed = function () {
   if (!isPlaying()) return;
-  finishGame();
   poiManager.shoot(mouseX, mouseY);
 };
 
@@ -96,6 +97,7 @@ const startGame = () => {
   titleElm.classList.add('invisible');
   playingScoreElm.classList.remove('invisible');
   lifeElm.classList.remove('invisible');
+  audioElm.play();
 };
 
 /** @type {(score: number) => void} */
@@ -103,10 +105,10 @@ const finishGame = () => {
   console.log('Finish Game');
   isStarted = false;
   isFinished = true;
-  tweet();
   scoreElm.classList.remove('invisible');
   playingScoreElm.classList.add('invisible');
   lifeElm.classList.add('invisible');
+  tweet();
 };
 
 const restartGame = () => {
@@ -127,12 +129,19 @@ const drawScore = (score) => {
   scoreValueElm.textContent = score;
 };
 
+const screenshot = () => {
+  html2canvas(document.querySelector('#game')).then((canvasForScreenshot) => {
+    const screenshots = document.querySelector('.screenshots');
+    screenshots.appendChild(canvasForScreenshot);
+  });
+};
+
 const tweet = () => {
+  screenshot();
+
   const text = `わたしのScoreは ${score} でした！`;
   const url = 'https://mloa.github.io/kingyo-sukui/';
   const hashtags = ['金魚救い', 'ツクアソ'].join(',');
-
-  return;
 
   window.open(
     'https://twitter.com/intent/tweet?' +

@@ -9,6 +9,7 @@
     "vite": "^3.0.8"
   },
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "p5js-wrapper": "^1.2.3"
   }
 }
