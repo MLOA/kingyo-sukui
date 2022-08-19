@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-import { Poi } from "./poi";
+import { Poi } from './poi';
 
 export class PoiManager {
   /** @type {(width: number, height: number, size: number) => void} */
@@ -9,7 +9,7 @@ export class PoiManager {
     this.pois = new Array();
     this.size = size;
     this.pos = { x: width / 2, y: height / 2 };
-    this.color = "#00ff00";
+    this.color = '#00ff00';
   }
 
   /** @type {(cursorX: number, cursorY: number, enemies: Enemy[]) => void} */
@@ -55,12 +55,12 @@ export class PoiManager {
 
   changeColor() {
     const colorList = [
-      "#00ff00", // 緑
-      "#ff0000", // 赤
-      "#0000ff", // 青
-      "#ffff00", // 黄
-      "#ff00ff", // 紫
-      "#00ffff", // 水
+      '#00ff00', // 緑
+      '#ff0000', // 赤
+      '#0000ff', // 青
+      '#ffff00', // 黄
+      '#ff00ff', // 紫
+      '#00ffff', // 水
     ];
     this.color = colorList[Math.floor(Math.random() * colorList.length)];
   }

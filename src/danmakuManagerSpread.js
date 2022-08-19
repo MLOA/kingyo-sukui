@@ -24,7 +24,7 @@ export class DanmakuManagerSpread extends DanmakuManager {
         enemy.setVelocity(
           createVector(1, 0)
             .rotate((TWO_PI / DIV) * i)
-            .mult(5)
+            .mult(5),
         );
         this._enemies.push(enemy);
       }

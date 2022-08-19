@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
 
 export class Enemy04 extends Enemy {
   constructor(danmaku, size) {
@@ -14,7 +14,7 @@ export class Enemy04 extends Enemy {
       this._velocity
         .add(this._targetPosition.copy().sub(this.pos).normalize().mult(0.1))
         .normalize()
-        .mult(speed)
+        .mult(speed),
     );
     return super.update();
   }

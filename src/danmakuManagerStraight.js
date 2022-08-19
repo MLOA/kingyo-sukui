@@ -23,8 +23,8 @@ export class DanmakuManagerStraight extends DanmakuManager {
         enemy.setPosition(
           createVector(
             this.pos.x + random(-50, 50),
-            this.pos.y + random(-50, 50)
-          )
+            this.pos.y + random(-50, 50),
+          ),
         );
         enemy.setVelocity(this._targetVector.normalize().mult(10));
         this._enemies.push(enemy);

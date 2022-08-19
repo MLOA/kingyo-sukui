@@ -20,14 +20,14 @@ export class Background {
 
   loadCometImages() {
     const cometImages = [];
-    cometImages.push(loadImage("./img/comets/comet1.png"));
-    cometImages.push(loadImage("./img/comets/comet2.png"));
-    cometImages.push(loadImage("./img/comets/comet3.png"));
-    cometImages.push(loadImage("./img/comets/comet4.png"));
-    cometImages.push(loadImage("./img/comets/comet5.png"));
-    cometImages.push(loadImage("./img/comets/comet6.png"));
-    cometImages.push(loadImage("./img/comets/comet7.png"));
-    cometImages.push(loadImage("./img/comets/comet8.png"));
+    cometImages.push(loadImage('./img/comets/comet1.png'));
+    cometImages.push(loadImage('./img/comets/comet2.png'));
+    cometImages.push(loadImage('./img/comets/comet3.png'));
+    cometImages.push(loadImage('./img/comets/comet4.png'));
+    cometImages.push(loadImage('./img/comets/comet5.png'));
+    cometImages.push(loadImage('./img/comets/comet6.png'));
+    cometImages.push(loadImage('./img/comets/comet7.png'));
+    cometImages.push(loadImage('./img/comets/comet8.png'));
     return cometImages;
   }
 
