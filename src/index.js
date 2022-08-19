@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-import { sketch } from 'p5js-wrapper';
+import { sketch } from "p5js-wrapper";
 
 import { Background } from "./background";
 import { GoldenFish } from "./goldenFish";
@@ -25,20 +25,20 @@ let isStarted = false;
 let isFinished = false;
 let score = 0;
 
-const startButton = document.querySelector('.start-button');
-startButton.addEventListener('click', () => startGame());
+const startButton = document.querySelector(".start-button");
+startButton.addEventListener("click", () => startGame());
 
-const reStartButton = document.querySelector('.restart-button');
-reStartButton.addEventListener('click', () => restartGame());
+const reStartButton = document.querySelector(".restart-button");
+reStartButton.addEventListener("click", () => restartGame());
 
-const titleElm = document.querySelector('.title');
-const playingScoreElm = document.querySelector('.playing-score');
-const scoreElm = document.querySelector('.score');
-const scoreValueElm = document.querySelector('.score-value');
+const titleElm = document.querySelector(".title");
+const playingScoreElm = document.querySelector(".playing-score");
+const scoreElm = document.querySelector(".score");
+const scoreValueElm = document.querySelector(".score-value");
 
 sketch.setup = function () {
   const canvas = createCanvas(width, height);
-  canvas.parent('game');
+  canvas.parent("game");
   score = 0;
   backgroundLayer = new Background(width, height);
   goldenFish = new GoldenFish(width, height, 100);
@@ -58,12 +58,6 @@ sketch.draw = function () {
   const mergedEnemies = danmakuManagers
     .map((danmakuManager) => danmakuManager._enemies)
     .flat();
-
-  // [
-  //   ...danmaku01._enemies,
-  //   ...danmaku02._enemies,
-  //   ...danmaku03._enemies,
-  // ];
   goldenFish.update(frameCount, mergedEnemies);
   poiManager.update(mouseX, mouseY, mergedEnemies);
   danmakuManagers.forEach((danmakuManager) => danmakuManager.update());
@@ -86,24 +80,24 @@ const isPlaying = () => {
 };
 
 const startGame = () => {
-  console.log('Start Game');
+  console.log("Start Game");
   sketch.setup();
   isStarted = true;
   isFinished = false;
-  titleElm.classList.add('invisible');
-  playingScoreElm.classList.remove('invisible');
+  titleElm.classList.add("invisible");
+  playingScoreElm.classList.remove("invisible");
 };
 
 const finishGame = () => {
-  console.log('Finish Game');
+  console.log("Finish Game");
   isStarted = false;
   isFinished = true;
-  scoreElm.classList.remove('invisible');
-  playingScoreElm.classList.add('invisible');
+  scoreElm.classList.remove("invisible");
+  playingScoreElm.classList.add("invisible");
 };
 
 const restartGame = () => {
-  scoreElm.classList.add('invisible');
+  scoreElm.classList.add("invisible");
   startGame();
 };
 
