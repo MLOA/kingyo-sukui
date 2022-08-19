@@ -23,8 +23,7 @@ sketch.draw = function () {
   background(0);
   backgroundLayer.draw();
 
-  goldenFish.update(frameCount);
-  // 一旦enemiesは空
+  goldenFish.update(frameCount, danmaku01._enemies);
   poiManager.update(mouseX, mouseY, danmaku01._enemies);
   danmaku01.update();
 

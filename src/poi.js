@@ -45,7 +45,7 @@ export class Poi {
         dist(this.pos.x, this.pos.y, enemy.pos.x, enemy.pos.y) <
         this.size / 2 + enemy.size / 2
       ) {
-        console.log('collisionEnemy');
+        // console.log('Poi.collisionEnemy');
         enemy.destroy();
         this.destroy();
       }
