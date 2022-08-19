@@ -5,8 +5,6 @@
 }
 
 html {
-  background-color: #111;
-  background-image: url('../img/cosmos.jpg');
   color: #f4f5f7;
   text-align: center;
   font-family: 'Kaisei Opti', 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro',
@@ -20,6 +18,8 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #111;
+  background-image: url('../img/background.jpg');
 }
 
 h1 {
