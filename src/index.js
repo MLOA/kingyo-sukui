@@ -62,6 +62,9 @@ sketch.draw = function () {
   goldenFish.update(frameCount, mergedEnemies);
   poiManager.update(mouseX, mouseY, mergedEnemies);
   danmakuManagers.forEach((danmakuManager) => danmakuManager.update());
+  if(goldenFish.life == 0) {
+    finishGame()
+  }
 
   goldenFish.draw();
   poiManager.draw();
@@ -72,7 +75,7 @@ sketch.draw = function () {
 
 sketch.mousePressed = function () {
   if (!isPlaying()) return;
-  finishGame();
+  // finishGame();
   poiManager.shoot(mouseX, mouseY);
 };
 
