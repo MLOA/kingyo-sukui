@@ -75,6 +75,7 @@ sketch.draw = function () {
     spawnDanmaku();
   }
 
+  score++;
   const mergedEnemies = danmakuManagers
     .map((danmakuManager) => danmakuManager._enemies)
     .flat();
@@ -86,7 +87,7 @@ sketch.draw = function () {
   poiManager.draw();
   danmakuManagers.forEach((danmakuManager) => danmakuManager.draw());
 
-  drawScore(score++);
+  drawScore(score);
 };
 
 sketch.mousePressed = function () {
