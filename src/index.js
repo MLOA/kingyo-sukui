@@ -37,6 +37,7 @@ const playingScoreElm = document.querySelector('.playing-score');
 const scoreElm = document.querySelector('.score');
 const scoreValueElm = document.querySelector('.score-value');
 const lifeElm = document.querySelector('.life');
+const audioElm = document.querySelector('.bgm');
 
 sketch.setup = function () {
   frameRate(60);
@@ -80,7 +81,6 @@ sketch.draw = function () {
 
 sketch.mousePressed = function () {
   if (!isPlaying()) return;
-  finishGame();
   poiManager.shoot(mouseX, mouseY);
 };
 
@@ -96,6 +96,7 @@ const startGame = () => {
   titleElm.classList.add('invisible');
   playingScoreElm.classList.remove('invisible');
   lifeElm.classList.remove('invisible');
+  audioElm.play();
 };
 
 /** @type {(score: number) => void} */
@@ -107,6 +108,8 @@ const finishGame = () => {
   scoreElm.classList.remove('invisible');
   playingScoreElm.classList.add('invisible');
   lifeElm.classList.add('invisible');
+  audioElm.pause();
+  audioElm.currentTime = 0;
 };
 
 const restartGame = () => {
@@ -131,8 +134,6 @@ const tweet = () => {
   const text = `わたしのScoreは ${score} でした！`;
   const url = 'https://mloa.github.io/kingyo-sukui/';
   const hashtags = ['金魚救い', 'ツクアソ'].join(',');
-
-  return;
 
   window.open(
     'https://twitter.com/intent/tweet?' +
