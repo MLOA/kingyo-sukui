@@ -25,7 +25,7 @@ export class Enemy04 extends Enemy {
     this.orbits.forEach((orbit, i) => {
       const ratio = i / this.orbits.length;
       fill(0, 255, 255, 255 * ratio);
-      this.display(orbit.pos.x, orbit.pos.y, orbit._angle, ratio);
+      this.display(orbit.pos.x, orbit.pos.y, orbit.angle, ratio);
     });
   }
 
