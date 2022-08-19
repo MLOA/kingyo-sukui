@@ -27,7 +27,7 @@ export class DanmakuManagerRotate extends DanmakuManager {
       enemy.setVelocity(
         createVector(RotateDirection, 0)
           .rotate(frameCount / 10.0)
-          .mult(10)
+          .mult(10),
       );
       this._enemies.push(enemy);
     }

@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
 
 export class Enemy03 extends Enemy {
   constructor(danmaku, size) {

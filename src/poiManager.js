@@ -31,7 +31,7 @@ export class PoiManager {
       this.pos.x,
       this.pos.y + this.size / 1.5,
       this.size / 4,
-      this.size / 1.2
+      this.size / 1.2,
     );
 
     stroke(this.color);
