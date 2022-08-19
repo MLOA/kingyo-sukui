@@ -34,7 +34,8 @@ button {
 }
 
 #game {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   height: 800px;
   margin: 30px auto auto;
   position: relative;

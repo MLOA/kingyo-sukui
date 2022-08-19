@@ -21,8 +21,10 @@ let poiManager;
 /** @type {DanmakuManager[]} */
 let danmakuManagers = [];
 
-const width = 800;
-const height = 800;
+const wrapper = document.querySelector('#game');
+
+const width = wrapper.clientWidth;
+const height = width > 800 ? 800 : wrapper.clientHeight;
 let isStarted = false;
 let isFinished = false;
 let score = 0;
