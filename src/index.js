@@ -33,6 +33,9 @@ startButton.addEventListener('click', () => startGame());
 const reStartButton = document.querySelector('.restart-button');
 reStartButton.addEventListener('click', () => restartGame());
 
+const tweetButton = document.querySelector('.tweet-button');
+tweetButton.addEventListener('click', () => tweet());
+
 const titleElm = document.querySelector('.title');
 const playingScoreElm = document.querySelector('.playing-score');
 const scoreElm = document.querySelector('.score');
@@ -112,7 +115,6 @@ const finishGame = () => {
   lifeElm.classList.add('invisible');
   audioElm.pause();
   audioElm.currentTime = 0;
-  tweet();
 };
 
 const restartGame = () => {
@@ -143,7 +145,7 @@ const screenshot = () => {
 const tweet = () => {
   screenshot();
 
-  const text = `わたしのScoreは ${score} でした！`;
+  const text = `わたしは ${score} の間\n金魚を救うことができました！`;
   const url = 'https://mloa.github.io/kingyo-sukui/';
   const hashtags = ['金魚救い', 'ツクアソ'].join(',');
 

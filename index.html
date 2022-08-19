@@ -33,13 +33,17 @@
         <p>
           あなたは
           <span class="score-value">0000</span>
-          の間金魚を救うことができました
+          の間<br />金魚を救うことができました！
         </p>
-        <button class="restart-button">再チャレンジする</button>
+        <section class="result-buttons">
+          <button class="restart-button">リトライ</button>
+          <button class="tweet-button">結果をツイート</button>
+        </section>
       </div>
     </div>
-    <audio class="bgm" src="./audio/bgm.mp3" loop></audio>
-    <audio class="hit" src="public/audio/hit.mp3"></audio>
+    <audio class="bgm" src="./audio/bgm.mp3" loop muted></audio>
+    <audio class="hit" src="./audio/hit.mp3"></audio>
+    <audio class="explosion" src="public/audio/explosion.mp3"></audio>
     <div class="screenshots" style="display: none"></div>
     <small>&copyMLOA</small>
     <script src="./src/index.js" type="module"></script>
