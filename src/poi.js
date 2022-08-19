@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-class Poi {
+export class Poi {
   constructor(poiManager, size) {
     this.poiManager = poiManager;
     this.pos = createVector(); // 座標

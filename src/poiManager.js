@@ -1,6 +1,8 @@
 /// <reference types="@types/p5/global" />
 
-class PoiManager {
+import { Poi } from "./poi";
+
+export class PoiManager {
   constructor(width, height, size) {
     this.pois = new Array();
     this.size = size;

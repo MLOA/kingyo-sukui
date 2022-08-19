@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-class Enemy {
+export class Enemy {
   constructor(danmaku, size) {
     this.danmaku = danmaku;
     this.pos = createVector(); // 座標

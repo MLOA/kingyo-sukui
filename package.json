@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "dev": "vite --port 7700",
+    "build": "vite build",
+    "preview": "vite preview --port 7700"
+  },
   "devDependencies": {
-    "@types/p5": "^1.4.2"
+    "@types/p5": "^1.4.2",
+    "vite": "^3.0.8"
+  },
+  "dependencies": {
+    "p5js-wrapper": "^1.2.3"
   }
 }

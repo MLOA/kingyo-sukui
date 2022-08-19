@@ -1,6 +1,9 @@
 /// <reference types="@types/p5/global" />
 
-class SpreadDanmakuManager extends DanmakuManager {
+import { DanmakuManager } from "./danmakuManager";
+import { Enemy01 } from "./enemy01";
+
+export class SpreadDanmakuManager extends DanmakuManager {
   constructor() {
     super(100);
   }

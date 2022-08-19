@@ -1,8 +1,15 @@
 /// <reference types="@types/p5/global" />
 
-let danmaku, poi, backgroundLayer, goldenFish;
+import { sketch } from "p5js-wrapper";
 
-function setup() {
+import { Background } from "./background";
+import { GoldenFish } from "./goldenFish";
+import { PoiManager } from "./poiManager";
+import { SpreadDanmakuManager } from "./spreadDanmakuManager";
+
+let danmaku, poi, backgroundLayer, goldenFish, poiManager, danmaku01;
+
+sketch.setup = function () {
   const width = 600;
   const height = 600;
   createCanvas(width, height);
@@ -10,9 +17,9 @@ function setup() {
   goldenFish = new GoldenFish(width, height, 100);
   poiManager = new PoiManager(width, height, 50);
   danmaku01 = new SpreadDanmakuManager();
-}
+};
 
-function draw() {
+sketch.draw = function () {
   background(0);
   backgroundLayer.draw();
 
@@ -24,8 +31,8 @@ function draw() {
   goldenFish.draw();
   poiManager.draw();
   danmaku01.draw();
-}
+};
 
-function mouseClicked() {
+sketch.mousePressed = function () {
   poiManager.shoot(mouseX, mouseY);
-}
+};

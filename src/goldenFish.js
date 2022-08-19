@@ -1,10 +1,10 @@
 /// <reference types="@types/p5/global" />
 
-class GoldenFish {
+export class GoldenFish {
   constructor(width, height, size) {
     this.size = size;
     this.pos = { x: width / 2, y: height - size };
-    this.image = loadImage('./public/img/kingyo.png');
+    this.image = loadImage("./img/kingyo.png");
   }
 
   update(frameCount) {
