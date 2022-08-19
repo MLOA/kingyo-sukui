@@ -14,7 +14,7 @@ export class Enemy {
   }
 
   update() {
-    this.orbits.push(this.pos.copy());
+    this.orbits.push({ pos: this.pos.copy(), angle: this._angle });
     if (this.orbits.length > 10) {
       this.orbits.shift();
     }

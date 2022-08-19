@@ -13,7 +13,7 @@ export class Enemy01 extends Enemy {
     this.orbits.forEach((orbit, i) => {
       const ratio = i / this.orbits.length;
       fill(255, 0, 0, 255 * ratio);
-      ellipse(orbit.x, orbit.y, 10 * ratio, 10 * ratio);
+      ellipse(orbit.pos.x, orbit.pos.y, 10 * ratio, 10 * ratio);
     });
   }
 }

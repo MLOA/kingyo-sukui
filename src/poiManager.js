@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-import { Poi } from "./poi";
+import { Poi } from './poi';
 
 export class PoiManager {
   /** @type {(width: number, height: number, size: number) => void} */
@@ -9,7 +9,7 @@ export class PoiManager {
     this.pois = new Array();
     this.size = size;
     this.pos = { x: width / 2, y: height / 2 };
-    this.color = "#00ff00";
+    this.color = '#00ff00';
   }
 
   /** @type {(cursorX: number, cursorY: number, enemies: Enemy[]) => void} */
@@ -27,10 +27,15 @@ export class PoiManager {
     stroke(this.color);
     fill(this.color);
     rectMode(CENTER);
-    rect(this.pos.x, this.pos.y + this.size / 1.5, this.size / 5, this.size);
+    rect(
+      this.pos.x,
+      this.pos.y + this.size / 1.5,
+      this.size / 4,
+      this.size / 1.2
+    );
 
     stroke(this.color);
-    fill(255, 255, 255);
+    fill(255, 255, 255, 100);
     ellipse(this.pos.x, this.pos.y, this.size, this.size);
 
     // 弾の描画
@@ -55,12 +60,12 @@ export class PoiManager {
 
   changeColor() {
     const colorList = [
-      "#00ff00", // 緑
-      "#ff0000", // 赤
-      "#0000ff", // 青
-      "#ffff00", // 黄
-      "#ff00ff", // 紫
-      "#00ffff", // 水
+      '#b4ff69', // 緑
+      '#ff3333', // 赤
+      '#6969ff', // 青
+      '#ffff69', // 黄
+      '#ff69b4', // ピンク
+      '#00ffff', // 水
     ];
     this.color = colorList[Math.floor(Math.random() * colorList.length)];
   }

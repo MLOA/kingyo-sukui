@@ -26,10 +26,15 @@ export class Poi {
     stroke(this.color);
     fill(this.color);
     rectMode(CENTER);
-    rect(this.pos.x, this.pos.y + this.size / 1.5, this.size / 5, this.size);
+    rect(
+      this.pos.x,
+      this.pos.y + this.size / 1.5,
+      this.size / 4,
+      this.size / 1.5
+    );
 
     stroke(this.color);
-    fill(255, 255, 255);
+    fill(255, 255, 255, 100);
     ellipse(this.pos.x, this.pos.y, this.size, this.size);
   }
 
