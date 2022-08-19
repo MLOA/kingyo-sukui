@@ -1,7 +1,7 @@
 /// <reference types="@types/p5/global" />
 
-import { DanmakuManager } from './danmakuManager';
-import { Enemy02 } from './enemy02';
+import { DanmakuManager } from "./danmakuManager";
+import { Enemy02 } from "./enemy02";
 
 export class DanmakuManagerRotate extends DanmakuManager {
   /** @type {(x: number, y: number) => void} */
@@ -18,9 +18,14 @@ export class DanmakuManagerRotate extends DanmakuManager {
   addEnemy() {
     if (frameCount % 3 === 1) {
       let enemy = new Enemy02(this, 10);
+      const RotateDirectionList = [-1, 1];
+      const RotateDirection =
+        RotateDirectionList[
+          Math.floor(Math.random() * RotateDirectionList.length)
+        ];
       enemy.setPosition(createVector(this.pos.x, this.pos.y));
       enemy.setVelocity(
-        createVector(1, 0)
+        createVector(RotateDirection, 0)
           .rotate(frameCount / 10.0)
           .mult(10)
       );
