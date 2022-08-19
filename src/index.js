@@ -38,6 +38,7 @@ const scoreElm = document.querySelector('.score');
 const scoreValueElm = document.querySelector('.score-value');
 const lifeElm = document.querySelector('.life');
 const audioElm = document.querySelector('.bgm');
+const hitAudioElm = document.querySelector('.hit');
 
 sketch.setup = function () {
   frameRate(60);
@@ -46,6 +47,7 @@ sketch.setup = function () {
   score = 0;
   backgroundLayer = new Background(width, height);
   goldenFish = new GoldenFish(width, height, 100, () => {
+    hitAudioElm.play();
     if (goldenFish.life == 0) {
       finishGame();
     }
