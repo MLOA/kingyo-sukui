@@ -9,11 +9,26 @@ export class GoldenFish {
     this.life = 10;
     this.pos = { x: width / 2, y: height - size };
     this.image = loadImage("./img/kingyo.png");
+    this.isInvincible = false;
+    this.defaultInvincibleTime = 5 * 60; // 300frame
+    this.invincibleTime = this.defaultInvincibleTime;
+    this.isBlinking = false;
   }
 
   /** @type {(frameCount: number, enemies: Enemy[]) => void} */
   update(frameCount, enemies) {
-    this.collisionEnemy(enemies);
+    if (!this.isInvincible) {
+      this.collisionEnemy(enemies);
+    } else {
+      this.invincibleTime--;
+      if (this.invincibleTime < 1) {
+        this.isInvincible = false;
+        this.invincibleTime = this.defaultInvincibleTime;
+        console.log("isInvincible", this.isInvincible);
+      }
+    }
+
+    this.blink();
 
     // ランダム移動
     const vX = noise(frameCount * 0.005) * width;
@@ -27,9 +42,13 @@ export class GoldenFish {
   }
 
   draw() {
-    tint(255, 255);
     // ellipse(this.pos.x, this.pos.y, this.collisionSize); // for collision debug
     imageMode(CENTER);
+    if (this.isInvincible && this.isBlinking) {
+      tint(255, 50);
+    } else {
+      tint(255, 255);
+    }
     image(this.image, this.pos.x, this.pos.y, this.size, this.size);
     imageMode(CORNER);
   }
@@ -50,6 +69,13 @@ export class GoldenFish {
 
   damage() {
     this.life--;
+    this.isInvincible = true;
     console.log("goldenFish.life", this.life);
+  }
+
+  blink() {
+    if (this.isInvincible && frameCount % 10 == 0) {
+      this.isBlinking = !this.isBlinking;
+    }
   }
 }
