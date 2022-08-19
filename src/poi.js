@@ -1,12 +1,13 @@
 /// <reference types="@types/p5/global" />
 
 export class Poi {
-  constructor(poiManager, size) {
+  constructor(poiManager, size, color) {
     this.poiManager = poiManager;
     this.pos = createVector(); // 座標
     this.velocity = createVector(); // 移動ベクトル
     this.angle = 0; // 向き
     this.size = size;
+    this.color = color;
   }
 
   update(enemies) {
@@ -17,12 +18,12 @@ export class Poi {
 
   draw() {
     // console.log('poi', 'draw');
-    stroke(0, 255, 0);
-    fill(0, 255, 0);
+    stroke(this.color);
+    fill(this.color);
     rectMode(CENTER);
     rect(this.pos.x, this.pos.y + this.size / 1.5, this.size / 5, this.size);
 
-    stroke(0, 255, 0);
+    stroke(this.color);
     fill(255, 255, 255);
     ellipse(this.pos.x, this.pos.y, this.size, this.size);
   }
