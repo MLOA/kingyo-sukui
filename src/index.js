@@ -187,7 +187,7 @@ const spawnDanmaku = () => {
       break;
     case 3:
       danmakuManagers.push(
-        new DanmakuManagerHoming(random(width), random(height / 5), goldenFish),
+        new DanmakuManagerHoming(random(width), random(height / 6), goldenFish),
       );
       break;
   }

@@ -34,7 +34,7 @@ export class Enemy04 extends Enemy {
     translate(x, y);
     push();
     rotate(angle);
-    ellipse(-8, -8, 20 * ratio, 20 * ratio);
+    ellipse(0, 0, 20 * ratio, 20 * ratio);
     pop();
     pop();
   }

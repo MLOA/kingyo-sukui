@@ -9,7 +9,7 @@ export class Enemy03 extends Enemy {
 
   draw() {
     noStroke();
-    fill(0, 0, 255);
+    fill(200, 120, 20);
     push();
     translate(this.pos.x, this.pos.y);
     push();

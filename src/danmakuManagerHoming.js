@@ -6,7 +6,7 @@ import { Enemy04 } from './enemy04';
 export class DanmakuManagerHoming extends DanmakuManager {
   /** @type {(x: number, y: number) => void} */
   constructor(x, y, target) {
-    super(x, y, 2 * 60);
+    super(x, y, 3 * 60);
     this.target = target;
   }
 
@@ -18,7 +18,7 @@ export class DanmakuManagerHoming extends DanmakuManager {
 
   addEnemy() {
     if (frameCount % 30 === 0) {
-      let enemy = new Enemy04(this, 30);
+      let enemy = new Enemy04(this, 20);
       const RotateDirectionList = [-1, 1];
       const RotateDirection =
         RotateDirectionList[

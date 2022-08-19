@@ -10,15 +10,14 @@ export class Enemy02 extends Enemy {
 
   draw() {
     noStroke();
-    stroke(0, 255, 0);
-    noFill();
+    fill(255, 255, 0);
     push();
     translate(this.pos.x, this.pos.y);
     push();
     rotate(this._angle);
     // ellipse(-8, -8, 24, 24); // for debug
     translate(-5, -10);
-    rotate(this.rotateDirection * frameCount);
+    rotate((this.rotateDirection * frameCount) / 8);
     this.star(0, 0, 10, 20, 5);
     pop();
     pop();
