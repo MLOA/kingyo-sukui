@@ -25,6 +25,14 @@
       <div class="title">
         <h1>金魚救い</h1>
         <button class="start-button">チャレンジ開始</button>
+        <div>
+          <small>BGM</small>
+          <label class="switch__label">
+            <input type="checkbox" class="switch__input" />
+            <span class="switch__content"></span>
+            <span class="switch__circle"></span>
+          </label>
+        </div>
       </div>
       <div class="life invisible"><span class="kingyo"></span></div>
       <div class="playing-score invisible"></div>
@@ -41,7 +49,7 @@
         </section>
       </div>
     </div>
-    <audio class="bgm" src="./audio/bgm.mp3" loop muted></audio>
+    <audio class="bgm" src="./audio/bgm.mp3" loop></audio>
     <audio class="hit" src="./audio/hit.mp3"></audio>
     <audio class="explosion" src="public/audio/explosion.mp3"></audio>
     <div class="screenshots" style="display: none"></div>

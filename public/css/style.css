@@ -91,3 +91,10 @@ button {
 small {
   padding: 1rem 0;
 }
+
+/* BGM */
+
+input {
+  width: 30px;
+  transform: scale(2);
+}

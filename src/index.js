@@ -42,6 +42,7 @@ const scoreElm = document.querySelector('.score');
 const scoreValueElm = document.querySelector('.score-value');
 const lifeElm = document.querySelector('.life');
 const audioElm = document.querySelector('.bgm');
+const audioCheckElm = document.querySelector('input');
 const hitAudioElm = document.querySelector('.hit');
 
 sketch.setup = function () {
@@ -102,7 +103,9 @@ const startGame = () => {
   titleElm.classList.add('invisible');
   playingScoreElm.classList.remove('invisible');
   lifeElm.classList.remove('invisible');
-  audioElm.play();
+  if (audioCheckElm.checked) {
+    audioElm.play();
+  }
 };
 
 /** @type {(score: number) => void} */
