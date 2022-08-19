@@ -19,8 +19,8 @@ let poiManager;
 /** @type {DanmakuManager[]} */
 let danmakuManagers = [];
 
-const width = 600;
-const height = 600;
+const width = 800;
+const height = 800;
 let isStarted = false;
 let isFinished = false;
 let score = 0;

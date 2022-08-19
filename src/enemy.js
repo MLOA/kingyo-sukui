@@ -1,6 +1,6 @@
 /// <reference types="@types/p5/global" />
 
-import { DanmakuManager } from "./danmakuManager";
+import { DanmakuManager } from './danmakuManager';
 
 export class Enemy {
   /** @type {(danmaku: DanmakuManager, size: number) => void} */
@@ -21,10 +21,10 @@ export class Enemy {
 
   collisionField() {
     if (
-      this.pos.x > 0 &&
-      this.pos.x < width &&
-      this.pos.y > 0 &&
-      this.pos.y < height
+      this.pos.x > -15 &&
+      this.pos.x < width + 15 &&
+      this.pos.y > -15 &&
+      this.pos.y < height + 15
     ) {
       return;
     }
