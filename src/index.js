@@ -44,6 +44,7 @@ const lifeElm = document.querySelector('.life');
 const audioElm = document.querySelector('.bgm');
 const audioCheckElm = document.querySelector('input');
 const hitAudioElm = document.querySelector('.hit');
+const explosionAudioElm = document.querySelector('.explosion');
 
 sketch.setup = function () {
   frameRate(60);
@@ -105,6 +106,9 @@ const startGame = () => {
   lifeElm.classList.remove('invisible');
   if (audioCheckElm.checked) {
     audioElm.play();
+  } else {
+    hitAudioElm.muted = true;
+    explosionAudioElm.muted = true;
   }
 };
 
