@@ -1,11 +1,11 @@
 /// <reference types="@types/p5/global" />
 
 import { DanmakuManager } from "./danmakuManager";
-import { Enemy01 } from "./enemy01";
+import { Enemy02 } from "./enemy02";
 
-export class SpreadDanmakuManager extends DanmakuManager {
+export class DanmakuManagerRotate extends DanmakuManager {
   constructor() {
-    super(100);
+    super(1000);
   }
 
   update() {
@@ -15,10 +15,14 @@ export class SpreadDanmakuManager extends DanmakuManager {
   }
 
   addEnemy() {
-    if (frameCount % 2 === 1) {
-      let enemy = new Enemy01(this, 10);
+    if (frameCount % 3 === 1) {
+      let enemy = new Enemy02(this, 10);
       enemy.setPosition(createVector(width / 2, height / 2));
-      enemy.setVelocity(p5.Vector.random2D().mult(5));
+      enemy.setVelocity(
+        createVector(1, 0)
+          .rotate(frameCount / 10.0)
+          .mult(10)
+      );
       this._enemies.push(enemy);
     }
   }

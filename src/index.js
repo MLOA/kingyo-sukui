@@ -2,12 +2,23 @@
 
 import { sketch } from 'p5js-wrapper';
 
-import { Background } from './background';
-import { GoldenFish } from './goldenFish';
-import { PoiManager } from './poiManager';
-import { SpreadDanmakuManager } from './spreadDanmakuManager';
+import { Background } from "./background";
+import { GoldenFish } from "./goldenFish";
+import { PoiManager } from "./poiManager";
+import { DanmakuManagerRotate } from "./danmakuManagerRotate";
+import { DanmakuManagerSpread } from "./danmakuManagerSpread";
+import { DanmakuManagerStraight } from "./danmakuManagerStraight";
+import { DanmakuManager } from "./danmakuManager";
 
-let danmaku, poi, backgroundLayer, goldenFish, poiManager, danmaku01;
+/** @type {Background} */
+let backgroundLayer;
+/** @type {GoldenFish} */
+let goldenFish;
+/** @type {PoiManager} */
+let poiManager;
+/** @type {DanmakuManager[]} */
+let danmakuManagers = [];
+
 const width = 600;
 const height = 600;
 let isStarted = false;
@@ -32,7 +43,11 @@ sketch.setup = function () {
   backgroundLayer = new Background(width, height);
   goldenFish = new GoldenFish(width, height, 100);
   poiManager = new PoiManager(width, height, 50);
-  danmaku01 = new SpreadDanmakuManager();
+  danmakuManagers = [
+    new DanmakuManagerRotate(),
+    new DanmakuManagerSpread(),
+    new DanmakuManagerStraight(),
+  ];
 };
 
 sketch.draw = function () {
@@ -40,14 +55,22 @@ sketch.draw = function () {
   backgroundLayer.draw();
 
   if (!isPlaying()) return;
-  goldenFish.update(frameCount);
-  // 一旦enemiesは空
-  poiManager.update(mouseX, mouseY, danmaku01._enemies);
-  danmaku01.update();
+  const mergedEnemies = danmakuManagers
+    .map((danmakuManager) => danmakuManager._enemies)
+    .flat();
+
+  // [
+  //   ...danmaku01._enemies,
+  //   ...danmaku02._enemies,
+  //   ...danmaku03._enemies,
+  // ];
+  goldenFish.update(frameCount, mergedEnemies);
+  poiManager.update(mouseX, mouseY, mergedEnemies);
+  danmakuManagers.forEach((danmakuManager) => danmakuManager.update());
 
   goldenFish.draw();
   poiManager.draw();
-  danmaku01.draw();
+  danmakuManagers.forEach((danmakuManager) => danmakuManager.draw());
 
   drawScore(score++);
 };
