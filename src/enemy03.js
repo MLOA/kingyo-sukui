@@ -2,19 +2,19 @@
 
 import { Enemy } from "./enemy";
 
-export class Enemy01 extends Enemy {
+export class Enemy03 extends Enemy {
   constructor(danmaku, size) {
     super(danmaku, size);
   }
 
   draw() {
-    stroke(255, 0, 0);
+    stroke(0, 0, 255);
     noFill();
     push();
     translate(this.pos.x, this.pos.y);
     push();
     rotate(this._angle);
-    rect(-15, -8, 30, 16);
+    ellipse(-8, -8, 24, 24);
     pop();
     pop();
   }
