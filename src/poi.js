@@ -30,7 +30,7 @@ export class Poi {
       this.pos.x,
       this.pos.y + this.size / 1.5,
       this.size / 4,
-      this.size / 1.5
+      this.size / 1.5,
     );
 
     stroke(this.color);
@@ -57,6 +57,9 @@ export class Poi {
         this.size / 2 + enemy.size / 2
       ) {
         // console.log('Poi.collisionEnemy');
+        const explosionAudioElm = document.querySelector('.explosion');
+        explosionAudioElm.currentTime = 0;
+        explosionAudioElm.play();
         enemy.destroy();
         this.destroy();
       }
