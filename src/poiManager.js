@@ -3,6 +3,7 @@
 import { Poi } from "./poi";
 
 export class PoiManager {
+  /** @type {(width: number, height: number, size: number) => void} */
   constructor(width, height, size) {
     /** @type {Poi[]} */
     this.pois = new Array();
@@ -11,6 +12,7 @@ export class PoiManager {
     this.color = "#00ff00";
   }
 
+  /** @type {(cursorX: number, cursorY: number, enemies: Enemy[]) => void} */
   update(cursorX, cursorY, enemies) {
     // ポインターの更新
     this.pos.x = cursorX;
@@ -35,6 +37,7 @@ export class PoiManager {
     this.pois.forEach((poi) => poi.draw());
   }
 
+  /** @type {(posX: number, posY: number) => void} */
   shoot(posX, posY) {
     // console.log('shooting!');
     const poi = new Poi(this, this.size, this.color);
@@ -45,9 +48,9 @@ export class PoiManager {
     // console.log(this.pois);
   }
 
+  /** @type {(targetPoi: Poi) => void} */
   delete(targetPoi) {
     this.pois = this.pois.filter((poi) => poi !== targetPoi);
-    // console.log('deleted poi');
   }
 
   changeColor() {

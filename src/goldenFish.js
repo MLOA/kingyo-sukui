@@ -3,6 +3,7 @@
 import { Enemy } from "./enemy";
 
 export class GoldenFish {
+  /** @type {(width: number, height: number, size: number) => void} */
   constructor(width, height, size) {
     this.size = size;
     this.collisionSize = size * 0.45;

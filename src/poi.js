@@ -1,5 +1,7 @@
 /// <reference types="@types/p5/global" />
 
+import { Enemy } from "./enemy";
+
 export class Poi {
   constructor(poiManager, size, color) {
     this.poiManager = poiManager;
@@ -10,6 +12,7 @@ export class Poi {
     this.color = color;
   }
 
+  /** @type {(enemies: Enemy[]) => void} */
   update(enemies) {
     this.pos.add(this.velocity);
     this.collisionField();

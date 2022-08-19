@@ -59,12 +59,6 @@ sketch.draw = function () {
   const mergedEnemies = danmakuManagers
     .map((danmakuManager) => danmakuManager._enemies)
     .flat();
-
-  // [
-  //   ...danmaku01._enemies,
-  //   ...danmaku02._enemies,
-  //   ...danmaku03._enemies,
-  // ];
   goldenFish.update(frameCount, mergedEnemies);
   poiManager.update(mouseX, mouseY, mergedEnemies);
   danmakuManagers.forEach((danmakuManager) => danmakuManager.update());
