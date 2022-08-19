@@ -1,8 +1,10 @@
 /// <reference types="@types/p5/global" />
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
+import { PoiManager } from './poiManager';
 
 export class Poi {
+  /** @type {(poiManager: PoiManager, size: number, color: string) => void} */
   constructor(poiManager, size, color) {
     this.poiManager = poiManager;
     this.pos = createVector(); // 座標

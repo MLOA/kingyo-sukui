@@ -1,17 +1,17 @@
 /// <reference types="@types/p5/global" />
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
 
 export class GoldenFish {
   /** @type {(width: number, height: number, size: number) => void} */
   constructor(width, height, size) {
     this.size = size;
     this.collisionSize = size * 0.45;
-    this.life = 10;
+    this.life = 3;
     this.pos = { x: width / 2, y: height - size };
-    this.image = loadImage("./img/kingyo.png");
+    this.image = loadImage('./img/kingyo.png');
     this.isInvincible = false;
-    this.defaultInvincibleTime = 5 * 60; // 300frame
+    this.defaultInvincibleTime = 3 * 60; // 180frame
     this.invincibleTime = this.defaultInvincibleTime;
     this.isBlinking = false;
   }
@@ -25,7 +25,7 @@ export class GoldenFish {
       if (this.invincibleTime < 1) {
         this.isInvincible = false;
         this.invincibleTime = this.defaultInvincibleTime;
-        console.log("isInvincible", this.isInvincible);
+        console.log('isInvincible', this.isInvincible);
       }
     }
 
@@ -71,7 +71,7 @@ export class GoldenFish {
   damage() {
     this.life--;
     this.isInvincible = true;
-    console.log("goldenFish.life", this.life);
+    console.log('goldenFish.life', this.life);
   }
 
   blink() {

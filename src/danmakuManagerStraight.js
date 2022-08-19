@@ -1,12 +1,13 @@
 /// <reference types="@types/p5/global" />
 
-import { DanmakuManager } from "./danmakuManager";
-import { Enemy03 } from "./enemy03";
+import { DanmakuManager } from './danmakuManager';
+import { Enemy03 } from './enemy03';
 
 export class DanmakuManagerStraight extends DanmakuManager {
-  constructor() {
-    super(1000);
-    this._targetVector = createVector(width / 2, height / 2);
+  /** @type {(x: number, y: number) => void} */
+  constructor(x, y) {
+    super(x, y, 3 * 60);
+    this._targetVector = createVector(0, height / 2);
   }
 
   update() {
@@ -16,15 +17,18 @@ export class DanmakuManagerStraight extends DanmakuManager {
   }
 
   addEnemy() {
-    if (frameCount % 60 === 1) {
-      this._targetVector = p5.Vector.random2D();
-    }
-
-    if (frameCount % 60 < 30 && frameCount % 5 === 1) {
-      let enemy = new Enemy03(this, 10);
-      enemy.setPosition(createVector(width / 2, height / 2));
-      enemy.setVelocity(this._targetVector.normalize().mult(10));
-      this._enemies.push(enemy);
+    if (frameCount % 60 == 1) {
+      new Array(Math.floor(random(3, 8))).fill().map(() => {
+        let enemy = new Enemy03(this, 10);
+        enemy.setPosition(
+          createVector(
+            this.pos.x + random(-50, 50),
+            this.pos.y + random(-50, 50)
+          )
+        );
+        enemy.setVelocity(this._targetVector.normalize().mult(10));
+        this._enemies.push(enemy);
+      });
     }
   }
 }

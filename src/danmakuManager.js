@@ -3,8 +3,9 @@
 import { Enemy } from "./enemy";
 
 export class DanmakuManager {
-  /** @type {(lifeTime: number) => void} */
-  constructor(lifeTime) {
+  /** @type {(x: number, y: number, lifeTime: number) => void} */
+  constructor(x, y, lifeTime) {
+    this.pos = { x, y };
     /** @type {Enemy[]} */
     this._enemies = new Array();
     this.lifeTime = lifeTime;
