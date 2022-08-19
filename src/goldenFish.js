@@ -4,7 +4,7 @@ class GoldenFish {
   constructor(width, height, size) {
     this.size = size;
     this.pos = { x: width / 2, y: height - size };
-    this.image = loadImage('./assets/img/kingyo.png');
+    this.image = loadImage('./public/img/kingyo.png');
   }
 
   update(frameCount) {
