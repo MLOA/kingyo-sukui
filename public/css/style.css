@@ -6,12 +6,20 @@
 
 html {
   background-color: #111;
-  background-image: url('../img/cosmos.jpg');
+  background-image: url("../img/cosmos.jpg");
   color: #f4f5f7;
   text-align: center;
-  font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝',
-    'Yu Mincho', '游明朝体', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', serif;
+  font-family: "Kaisei Opti", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro",
+    "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ＭＳ Ｐ明朝", "MS PMincho",
+    serif;
   font-size: 24px;
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -31,6 +39,7 @@ button {
   margin: 0 auto;
   margin-top: 30px;
   position: relative;
+  flex-grow: 1;
 }
 
 .score,
@@ -56,7 +65,7 @@ button {
   display: inline-block;
   width: 40px;
   height: 60px;
-  background-image: url('../img/kingyo.png');
+  background-image: url("../img/kingyo.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -68,4 +77,8 @@ button {
 
 .invisible {
   display: none;
+}
+
+small {
+  padding: 1rem 0;
 }
