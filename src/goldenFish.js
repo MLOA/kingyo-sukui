@@ -1,5 +1,7 @@
 /// <reference types="@types/p5/global" />
 
+import { Enemy } from "./enemy";
+
 export class GoldenFish {
   constructor(width, height, size) {
     this.size = size;
@@ -9,6 +11,7 @@ export class GoldenFish {
     this.image = loadImage("./img/kingyo.png");
   }
 
+  /** @type {(frameCount: number, enemies: Enemy[]) => void} */
   update(frameCount, enemies) {
     this.collisionEnemy(enemies);
 
@@ -31,6 +34,7 @@ export class GoldenFish {
     imageMode(CORNER);
   }
 
+  /** @type {(enemies: Enemy[]) => void} */
   collisionEnemy(enemies) {
     enemies.map((enemy) => {
       if (

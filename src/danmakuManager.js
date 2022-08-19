@@ -1,7 +1,10 @@
 /// <reference types="@types/p5/global" />
 
+import { Enemy } from "./enemy";
+
 export class DanmakuManager {
   constructor(lifeTime) {
+    /** @type {Enemy[]} */
     this._enemies = new Array();
     this.lifeTime = lifeTime;
     this.isAlive = true;

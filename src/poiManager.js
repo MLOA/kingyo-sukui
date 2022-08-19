@@ -4,6 +4,7 @@ import { Poi } from "./poi";
 
 export class PoiManager {
   constructor(width, height, size) {
+    /** @type {Poi[]} */
     this.pois = new Array();
     this.size = size;
     this.pos = { x: width / 2, y: height / 2 };
