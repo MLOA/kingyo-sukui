@@ -26,7 +26,6 @@ export class GoldenFish {
       if (this.invincibleTime < 1) {
         this.isInvincible = false;
         this.invincibleTime = this.defaultInvincibleTime;
-        console.log('isInvincible', this.isInvincible);
       }
     }
 
@@ -72,7 +71,7 @@ export class GoldenFish {
   damage() {
     this.life--;
     this.isInvincible = true;
-    console.log('goldenFish.life', this.life);
+    // console.log('goldenFish.life', this.life);
     this.onDamage();
   }
 

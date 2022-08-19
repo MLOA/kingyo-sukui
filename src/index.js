@@ -175,7 +175,6 @@ const spawnDanmaku = () => {
     (danmakuManager) => danmakuManager.isAlive,
   );
   if (danmakuManagers.length > 1) return;
-  console.log('spawn');
   const rand = Math.floor(random(4));
   switch (rand) {
     case 0:
