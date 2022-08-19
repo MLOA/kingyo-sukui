@@ -1,6 +1,7 @@
 /// <reference types="@types/p5/global" />
 
 import { sketch } from 'p5js-wrapper';
+import html2canvas from 'html2canvas';
 
 import { Background } from './background';
 import { GoldenFish } from './goldenFish';
@@ -106,12 +107,12 @@ const finishGame = () => {
   console.log('Finish Game');
   isStarted = false;
   isFinished = true;
-  tweet();
   scoreElm.classList.remove('invisible');
   playingScoreElm.classList.add('invisible');
   lifeElm.classList.add('invisible');
   audioElm.pause();
   audioElm.currentTime = 0;
+  tweet();
 };
 
 const restartGame = () => {
@@ -132,7 +133,16 @@ const drawScore = (score) => {
   scoreValueElm.textContent = score;
 };
 
+const screenshot = () => {
+  html2canvas(document.querySelector('#game')).then((canvasForScreenshot) => {
+    const screenshots = document.querySelector('.screenshots');
+    screenshots.appendChild(canvasForScreenshot);
+  });
+};
+
 const tweet = () => {
+  screenshot();
+
   const text = `わたしのScoreは ${score} でした！`;
   const url = 'https://mloa.github.io/kingyo-sukui/';
   const hashtags = ['金魚救い', 'ツクアソ'].join(',');
