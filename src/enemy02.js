@@ -3,26 +3,39 @@
 import { Enemy } from './enemy';
 
 export class Enemy02 extends Enemy {
-  constructor(danmaku, size) {
+  constructor(danmaku, size, rotateDirection) {
     super(danmaku, size);
+    this.rotateDirection = rotateDirection;
   }
 
   draw() {
     noStroke();
-    this.orbits.forEach((orbit, i) => {
-      const ratio = i / this.orbits.length;
-      fill(0, 255, 0, 255 * ratio);
-      this.display(orbit.pos.x, orbit.pos.y, orbit._angle, ratio);
-    });
+    stroke(0, 255, 0);
+    noFill();
+    push();
+    translate(this.pos.x, this.pos.y);
+    push();
+    rotate(this._angle);
+    // ellipse(-8, -8, 24, 24); // for debug
+    translate(-5, -10);
+    rotate(this.rotateDirection * frameCount);
+    this.star(0, 0, 10, 20, 5);
+    pop();
+    pop();
   }
 
-  display(x, y, angle, ratio) {
-    push();
-    translate(x, y);
-    push();
-    rotate(angle);
-    ellipse(-8, -8, 20 * ratio, 20 * ratio);
-    pop();
-    pop();
+  star(x, y, radius1, radius2, npoints) {
+    const angle = TWO_PI / npoints;
+    const halfAngle = angle / 2.0;
+    beginShape();
+    for (let a = 0; a < TWO_PI; a += angle) {
+      let sx = x + cos(a) * radius2;
+      let sy = y + sin(a) * radius2;
+      vertex(sx, sy);
+      sx = x + cos(a + halfAngle) * radius1;
+      sy = y + sin(a + halfAngle) * radius1;
+      vertex(sx, sy);
+    }
+    endShape(CLOSE);
   }
 }

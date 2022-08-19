@@ -20,13 +20,21 @@ export class Enemy04 extends Enemy {
   }
 
   draw() {
-    stroke(255, 0, 255);
-    noFill();
+    noStroke();
+    fill(0, 255, 255);
+    this.orbits.forEach((orbit, i) => {
+      const ratio = i / this.orbits.length;
+      fill(0, 255, 255, 255 * ratio);
+      this.display(orbit.pos.x, orbit.pos.y, orbit._angle, ratio);
+    });
+  }
+
+  display(x, y, angle, ratio) {
     push();
-    translate(this.pos.x, this.pos.y);
+    translate(x, y);
     push();
-    rotate(this._angle);
-    rect(-15, -8, 30, 16);
+    rotate(angle);
+    ellipse(-8, -8, 20 * ratio, 20 * ratio);
     pop();
     pop();
   }
