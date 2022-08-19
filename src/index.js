@@ -1,15 +1,15 @@
 /// <reference types="@types/p5/global" />
 
-import { sketch } from "p5js-wrapper";
+import { sketch } from 'p5js-wrapper';
 
-import { Background } from "./background";
-import { GoldenFish } from "./goldenFish";
-import { PoiManager } from "./poiManager";
-import { DanmakuManagerRotate } from "./danmakuManagerRotate";
-import { DanmakuManagerSpread } from "./danmakuManagerSpread";
-import { DanmakuManagerStraight } from "./danmakuManagerStraight";
-import { DanmakuManagerHoming } from "./danmakuManagerHoming";
-import { DanmakuManager } from "./danmakuManager";
+import { Background } from './background';
+import { GoldenFish } from './goldenFish';
+import { PoiManager } from './poiManager';
+import { DanmakuManagerRotate } from './danmakuManagerRotate';
+import { DanmakuManagerSpread } from './danmakuManagerSpread';
+import { DanmakuManagerStraight } from './danmakuManagerStraight';
+import { DanmakuManagerHoming } from './danmakuManagerHoming';
+import { DanmakuManager } from './danmakuManager';
 
 /** @type {Background} */
 let backgroundLayer;
@@ -26,22 +26,22 @@ let isStarted = false;
 let isFinished = false;
 let score = 0;
 
-const startButton = document.querySelector(".start-button");
-startButton.addEventListener("click", () => startGame());
+const startButton = document.querySelector('.start-button');
+startButton.addEventListener('click', () => startGame());
 
-const reStartButton = document.querySelector(".restart-button");
-reStartButton.addEventListener("click", () => restartGame());
+const reStartButton = document.querySelector('.restart-button');
+reStartButton.addEventListener('click', () => restartGame());
 
-const titleElm = document.querySelector(".title");
-const playingScoreElm = document.querySelector(".playing-score");
-const scoreElm = document.querySelector(".score");
-const scoreValueElm = document.querySelector(".score-value");
-const lifeElm = document.querySelector(".life");
+const titleElm = document.querySelector('.title');
+const playingScoreElm = document.querySelector('.playing-score');
+const scoreElm = document.querySelector('.score');
+const scoreValueElm = document.querySelector('.score-value');
+const lifeElm = document.querySelector('.life');
 
 sketch.setup = function () {
   frameRate(60);
   const canvas = createCanvas(width, height);
-  canvas.parent("game");
+  canvas.parent('game');
   score = 0;
   backgroundLayer = new Background(width, height);
   goldenFish = new GoldenFish(width, height, 100, () => {
@@ -89,30 +89,31 @@ const isPlaying = () => {
 };
 
 const startGame = () => {
-  console.log("Start Game");
+  console.log('Start Game');
   sketch.setup();
   isStarted = true;
   isFinished = false;
-  titleElm.classList.add("invisible");
-  playingScoreElm.classList.remove("invisible");
+  titleElm.classList.add('invisible');
+  playingScoreElm.classList.remove('invisible');
+  lifeElm.classList.remove('invisible');
 };
 
 const finishGame = () => {
-  console.log("Finish Game");
+  console.log('Finish Game');
   isStarted = false;
   isFinished = true;
-  scoreElm.classList.remove("invisible");
-  playingScoreElm.classList.add("invisible");
-  lifeElm.classList.add("invisible");
+  scoreElm.classList.remove('invisible');
+  playingScoreElm.classList.add('invisible');
+  lifeElm.classList.add('invisible');
 };
 
 const restartGame = () => {
-  scoreElm.classList.add("invisible");
+  scoreElm.classList.add('invisible');
   startGame();
 };
 
 const drawLife = () => {
-  let life = "";
+  let life = '';
   new Array(goldenFish.life).fill().map(() => {
     life += '<span class="kingyo"></span>';
   });
@@ -129,7 +130,7 @@ const spawnDanmaku = () => {
     (danmakuManager) => danmakuManager.isAlive
   );
   if (danmakuManagers.length > 1) return;
-  console.log("spawn");
+  console.log('spawn');
   const rand = Math.floor(random(4));
   switch (rand) {
     case 0:
