@@ -1,21 +1,22 @@
 /// <reference types="@types/p5/global" />
 
-import { Enemy } from "./enemy";
+import { Enemy } from './enemy';
 
 export class DanmakuManager {
   /** @type {(x: number, y: number, lifeTime: number) => void} */
-  constructor(x, y, lifeTime) {
+  constructor(x, y, generatingTime) {
     this.pos = { x, y };
     /** @type {Enemy[]} */
     this._enemies = new Array();
-    this.lifeTime = lifeTime;
+    this.generatingTime = generatingTime;
     this.isAlive = true;
+    this.isGenerating = true;
   }
 
   update() {
-    this.lifeTime--;
-    if (this.lifeTime === 0) {
-      this.isAlive = false;
+    this.generatingTime--;
+    if (this.generatingTime == 0) {
+      this.isGenerating = false;
     }
     this._enemies.forEach((enemy) => enemy.update());
   }
@@ -26,5 +27,8 @@ export class DanmakuManager {
 
   delete(targetEnemy) {
     this._enemies = this._enemies.filter((enemy) => enemy !== targetEnemy);
+    if (this._enemies.length == 0) {
+      this.isAlive = false;
+    }
   }
 }

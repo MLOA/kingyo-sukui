@@ -12,7 +12,7 @@ export class DanmakuManagerStraight extends DanmakuManager {
 
   update() {
     super.update();
-    if (!this.isAlive) return;
+    if (!this.isGenerating) return;
     this.addEnemy();
   }
 

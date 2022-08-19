@@ -1,7 +1,7 @@
 /// <reference types="@types/p5/global" />
 
-import { DanmakuManager } from "./danmakuManager";
-import { Enemy04 } from "./enemy04";
+import { DanmakuManager } from './danmakuManager';
+import { Enemy04 } from './enemy04';
 
 export class DanmakuManagerHoming extends DanmakuManager {
   /** @type {(x: number, y: number) => void} */
@@ -12,7 +12,7 @@ export class DanmakuManagerHoming extends DanmakuManager {
 
   update() {
     super.update();
-    if (!this.isAlive) return;
+    if (!this.isGenerating) return;
     this.addEnemy();
   }
 
