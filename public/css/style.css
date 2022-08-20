@@ -137,14 +137,14 @@ small {
   user-select: none;
 }
 
-.volume-on-off-container {
-  min-width: 36px;
-  display: inline-block;
-  text-align: left;
-}
-
 .checkbox {
   margin-left: 18px;
   height: min-content;
   transform: scale(2);
+  display: none;
+}
+
+.volume-on,
+.volume-off {
+  font-size: 36px;
 }
