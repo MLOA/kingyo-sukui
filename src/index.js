@@ -201,7 +201,11 @@ const spawnDanmaku = () => {
       danmakuManager = new DanmakuManagerStraight(spawnX, 0);
       break;
     case 1:
-      danmakuManager = new DanmakuManagerRotate(spawnX, random(0, height / 4));
+      danmakuManager = new DanmakuManagerRotate(
+        spawnX,
+        random(0, height / 4),
+        Math.floor(Math.random() * 2) * 2 - 1,
+      );
       break;
     case 2:
       danmakuManager = new DanmakuManagerSpread(spawnX, random(height / 3));
@@ -210,6 +214,7 @@ const spawnDanmaku = () => {
       danmakuManager = new DanmakuManagerHoming(
         spawnX,
         random(height / 6),
+        Math.floor(Math.random() * 2) * 2 - 1,
         goldenFish,
       );
       break;
