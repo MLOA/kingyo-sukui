@@ -6,6 +6,7 @@ export class Enemy04 extends Enemy {
   constructor(danmaku, size) {
     super(danmaku, size);
     this._targetPosition = createVector();
+    this._lifetime = 3 * 60;
   }
 
   update() {
@@ -16,6 +17,7 @@ export class Enemy04 extends Enemy {
         .normalize()
         .mult(speed),
     );
+    this.lifeTimer();
     return super.update();
   }
 
@@ -41,5 +43,13 @@ export class Enemy04 extends Enemy {
 
   setTargetPosition(position) {
     this._targetPosition = position;
+  }
+
+  lifeTimer() {
+    this._lifetime--;
+    if (this._lifetime > 0) {
+      return;
+    }
+    this.destroy();
   }
 }

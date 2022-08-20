@@ -185,24 +185,25 @@ const spawnDanmaku = () => {
   );
   if (danmakuManagers.length > 1) return;
   const rand = Math.floor(random(4));
+  let danmakuManager;
+  const spawnX = random(width);
   switch (rand) {
     case 0:
-      danmakuManagers.push(new DanmakuManagerStraight(random(width), 0));
+      danmakuManager = new DanmakuManagerStraight(spawnX, 0);
       break;
     case 1:
-      danmakuManagers.push(
-        new DanmakuManagerRotate(random(width), random(0, height / 4)),
-      );
+      danmakuManager = new DanmakuManagerRotate(spawnX, random(0, height / 4));
       break;
     case 2:
-      danmakuManagers.push(
-        new DanmakuManagerSpread(random(width), random(height / 3)),
-      );
+      danmakuManager = new DanmakuManagerSpread(spawnX, random(height / 3));
       break;
     case 3:
-      danmakuManagers.push(
-        new DanmakuManagerHoming(random(width), random(height / 6), goldenFish),
+      danmakuManager = new DanmakuManagerHoming(
+        spawnX,
+        random(height / 6),
+        goldenFish,
       );
       break;
   }
+  danmakuManagers.push(danmakuManager);
 };
