@@ -4,7 +4,8 @@
 ![playing](public/img/kingyo-sukui_playing.png)
 
 〜ポイを投擲(ポイ)して金魚をすくえ〜  
-お前に金魚が救えるか？Planet Of Intelligence の力を信じろ！
+お前に金魚が救えるか？Planet Of Intelligence の力を信じろ！  
+新世紀金魚弾幕 STG！
 
 ### [→Go to GamePage!](https://mloa.github.io/kingyo-sukui/)
 
@@ -29,9 +30,24 @@
 
 ### 利用言語・フレームワーク
 
+- HTML
+- CSS
 - javascript
-- node.js
 - p5.js
+
+### 開発環境
+
+- node.js
+- yarn
+- vite
+- github actions
+- figma
+
+### 動作環境(確認済み)
+
+- Google Chrome
+  - PC
+  - Android
 
 ## 謝辞
 
