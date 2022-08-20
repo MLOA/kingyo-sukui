@@ -38,13 +38,19 @@ reStartButton.addEventListener('click', () => restartGame());
 const tweetButton = document.querySelector('.tweet-button');
 tweetButton.addEventListener('click', () => tweet());
 
+const audioCheckElm = document.querySelector('input');
+audioCheckElm.addEventListener('click', () => {
+  document.querySelector('.volume-on').classList.toggle('invisible');
+  document.querySelector('.volume-off').classList.toggle('invisible');
+});
+
 const titleElm = document.querySelector('.title');
 const playingScoreElm = document.querySelector('.playing-score');
 const scoreElm = document.querySelector('.score');
 const scoreValueElm = document.querySelector('.score-value');
 const lifeElm = document.querySelector('.life');
 const audioElm = document.querySelector('.bgm');
-const audioCheckElm = document.querySelector('input');
+
 const hitAudioElm = document.querySelector('.hit');
 const explosionAudioElm = document.querySelector('.explosion');
 

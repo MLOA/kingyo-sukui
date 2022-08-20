@@ -122,13 +122,25 @@ small {
   justify-content: center;
   padding: 10px;
   cursor: pointer;
+  align-items: center;
 }
 
 .bgm-switch-container:hover {
   filter: brightness(1.75);
 }
 
-input {
-  margin-left: 10px;
+.volume-text {
+  user-select: none;
+}
+
+.volume-on-off-container {
+  min-width: 36px;
+  display: inline-block;
+  text-align: left;
+}
+
+.checkbox {
+  margin-left: 18px;
+  height: min-content;
   transform: scale(2);
 }
