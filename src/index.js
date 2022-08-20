@@ -155,15 +155,17 @@ const screenshot = () => {
 const tweet = () => {
   screenshot();
 
-  const text = `わたしは ${score} の間\n金魚を救うことができました！`;
+  const hashtags = ['#金魚救い', '#ツクアソ'].join(' ');
+  const text =
+    `わたしは ${score} の間、\n金魚を"救う"ことができました！ ` +
+    hashtags +
+    '\n';
   const url = 'https://mloa.github.io/kingyo-sukui/';
-  const hashtags = ['金魚救い', 'ツクアソ'].join(',');
 
   window.open(
     'https://twitter.com/intent/tweet?' +
       [
         'text=' + encodeURIComponent(text),
-        'hashtags=' + encodeURIComponent(hashtags),
         'url=' + encodeURIComponent(url),
       ].join('&'),
     '',
