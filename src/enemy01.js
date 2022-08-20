@@ -9,6 +9,7 @@ export class Enemy01 extends Enemy {
 
   draw() {
     noStroke();
+    fill(255, 0, 0, 255);
     ellipse(this.pos.x, this.pos.y, 10, 10);
     this.orbits.forEach((orbit, i) => {
       const ratio = i / this.orbits.length;
