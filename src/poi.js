@@ -26,11 +26,41 @@ export class Poi {
     stroke(this.color);
     fill(this.color);
     rectMode(CENTER);
+
+    const stickHeight = this.size / 1.5;
+
+    // 柄
     rect(
       this.pos.x,
-      this.pos.y + this.size / 1.5,
-      this.size / 4,
-      this.size / 1.5,
+      this.pos.y + this.size / 2 + stickHeight / 2,
+      this.size / 5,
+      stickHeight,
+      10,
+    );
+
+    // 上部のポチ
+    ellipse(
+      this.pos.x,
+      this.pos.y - this.size / 2.4 - 1,
+      this.size / 10,
+      this.size / 20,
+    );
+
+    // 柄の丸い部分
+    ellipse(
+      this.pos.x,
+      this.pos.y + this.size / 2 + this.size / 2.4 + stickHeight / 2 - 1,
+      this.size / 5 + 2,
+      this.size / 5 + 2,
+    );
+
+    // 柄の穴
+    fill(0);
+    ellipse(
+      this.pos.x,
+      this.pos.y + this.size / 2 + this.size / 2.4 + stickHeight / 2 - 1,
+      5,
+      5,
     );
 
     stroke(this.color);
