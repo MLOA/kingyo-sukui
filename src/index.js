@@ -27,7 +27,8 @@ const width = wrapper.clientWidth;
 const height = width > 800 ? 800 : wrapper.clientHeight;
 let isStarted = false;
 let isFinished = false;
-let score = 0;
+let startTime;
+let score;
 
 const startButton = document.querySelector('.start-button');
 startButton.addEventListener('click', () => startGame());
@@ -55,6 +56,7 @@ const hitAudioElm = document.querySelector('.hit');
 const explosionAudioElm = document.querySelector('.explosion');
 
 sketch.setup = function () {
+  startTime = new Date().getTime();
   frameRate(60);
   const canvas = createCanvas(width, height);
   canvas.parent('game');
@@ -81,7 +83,7 @@ sketch.draw = function () {
     spawnDanmaku();
   }
 
-  score++;
+  updateScore();
   const mergedEnemies = danmakuManagers
     .map((danmakuManager) => danmakuManager._enemies)
     .flat();
@@ -146,6 +148,13 @@ const drawLife = () => {
   lifeElm.innerHTML = life;
 };
 
+const updateScore = () => {
+  const time = new Date().getTime() - startTime;
+  const second = floor(time / 1000);
+  const mills = time - second * 1000;
+  score = `${second}.${('000' + mills).slice(-3)}`;
+};
+
 const drawScore = (score) => {
   playingScoreElm.textContent = score;
   scoreValueElm.textContent = score;
@@ -163,7 +172,7 @@ const tweet = () => {
 
   const hashtags = ['#金魚救い', '#ツクアソ'].join(' ');
   const text =
-    `わたしは ${score} の間、\n金魚を"救う"ことができました！ ` +
+    `わたしは ${score} 秒の間、\n金魚を"救う"ことができました！ ` +
     hashtags +
     '\n';
   const url = 'https://mloa.github.io/kingyo-sukui/';
