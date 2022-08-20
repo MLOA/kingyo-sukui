@@ -101,6 +101,7 @@ button:hover {
 
 .invisible {
   display: none;
+  user-select: none;
 }
 
 .result-buttons {
